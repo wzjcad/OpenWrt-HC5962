@@ -10,3 +10,6 @@ sed -i 's/set wireless.radio${devidx}.disabled=1/set wireless.radio${devidx}.dis
 #sed -i '/wireless.radio${devidx}.disabled/a\			set wireless.radio${devidx}.noscan=1' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i 's/set wireless.default_radio${devidx}.encryption=none/set wireless.default_radio${devidx}.encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i '/set wireless.default_radio${devidx}.encryption/a\			set wireless.default_radio${devidx}.key=56781234' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+#
+sed -i '/option disable_ipv6/a\	option flow_offloading_hw	1' package/network/config/firewall/files/firewall.config
+sed -i '/option disable_ipv6/a\	option flow_offloading	1' package/network/config/firewall/files/firewall.config
