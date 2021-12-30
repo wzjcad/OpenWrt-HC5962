@@ -1,0 +1,26 @@
+sudo apt update
+sudo apt upgrade
+sudo apt install $(curl -fsSL git.io/depends-ubuntu-2004)
+------------
+git clone https://github.com/openwrt/openwrt.git -b openwrt-21.02 openwrt
+cd ./openwrt
+git pull
+---------------
+wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/diy-part1.sh
+chmod +x diy-part1.sh && sh diy-part1.sh
+--------------
+./scripts/feeds update -a
+./scripts/feeds install -a
+--------------
+wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/diy-part2.sh
+chmod +x diy-part2.sh && sh diy-part2.sh
+---------------
+wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/hc5962a.config -O .config
+make menuconfig
+make defconfig
+make download
+make
+----------------
+make clean
+make dirclean
+make distclean
