@@ -6,29 +6,52 @@ sudo vi /etc/environment
 export http_proxy=http://192.168.1.107:7890
 export https_proxy=http://192.168.1.107:7890
 sudo apt install $(curl -fsSL git.io/depends-ubuntu-2004)
-------------
+-------------
 git clone https://github.com/openwrt/openwrt.git -b openwrt-21.02 openwrt
 cd ./openwrt
 git pull
----------------
+-------------
 wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/diy-part1.sh
 wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/neo2/diy-part1.sh
 chmod +x diy-part1.sh && sh diy-part1.sh
---------------
+-------------
 ./scripts/feeds update -a
 ./scripts/feeds install -a
---------------
+-------------
 wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/diy-part2.sh
 wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/neo2/diy-part2.sh
 chmod +x diy-part2.sh && sh diy-part2.sh
----------------
+-------------
 wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/hc5962a.config -O .config
 wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/neo2/neo2.config -O .config
 make menuconfig
 make defconfig
 make download
 make
-----------------
+-------------
 make clean
 make dirclean
 make distclean
+-------------
+neo2fenqu
+opkg update
+opkg install fdisk
+fdisk -l
+fdisk /dev/mmcblk0
+a	设置可引导标记
+b	编辑bsd磁盘标签
+c	设置DOS操作系统兼容标记
+d	删除一个分区
+l	显示已知的文件系统类型
+m	显示帮助菜单
+n	新建分区p主分区e扩展分区
+o	建立空白DOS分区表
+p	显示分区列表
+q	不保存退出
+s	新建空白SUN磁盘标签
+t	改变一个分区的系统ID
+u	改变显示记录单位
+v	验证分区表
+w	保存退出
+x	附加功能（仅专家）
+mkfs.ext4 /dev/mmcblk0p3
