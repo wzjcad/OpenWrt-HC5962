@@ -13,9 +13,6 @@ sed -i 's/set wireless.radio${devidx}.disabled=1/set wireless.radio${devidx}.dis
 sed -i 's/set wireless.default_radio${devidx}.encryption=none/set wireless.default_radio${devidx}.encryption=sae-mixed/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i '/set wireless.default_radio${devidx}.encryption/a\			set wireless.default_radio${devidx}.key=56781234' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 #
-sed -i '/option disable_ipv6/a\	option flow_offloading_hw	1' package/network/config/firewall/files/firewall.config
-sed -i '/option disable_ipv6/a\	option flow_offloading	1' package/network/config/firewall/files/firewall.config
-#
 sed -i 's/REJECT/ACCEPT/g' package/network/config/firewall/files/firewall.config
 sed -i 's/static/dhcp/g' package/base-files/files/lib/functions/uci-defaults.sh
 sed -i "s/ucidef_set_interfaces_lan_wan \"lan1 lan2 lan3\" \"wan\"/ucidef_set_interfaces_lan \"lan1 lan2 lan3 wan\"/g" target/linux/ramips/mt7621/base-files/etc/board.d/02_network
