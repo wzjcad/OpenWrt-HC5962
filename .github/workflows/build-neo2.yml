@@ -16,7 +16,7 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_BRANCH: openwrt-21.02
+  REPO_BRANCH: v21.02.2
   FEEDS_CONF: neo2/feeds.conf.default
   CONFIG_FILE: neo2/neo2.config
   DIY_P1_SH: neo2/diy-part1.sh
