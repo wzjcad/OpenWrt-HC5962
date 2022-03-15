@@ -16,7 +16,8 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_BRANCH: openwrt-21.02
+  # REPO_BRANCH: openwrt-21.02
+  REPO_BRANCH: v21.02.2
   FEEDS_CONF: hc5962/feeds.conf.default
   CONFIG_FILE: hc5962/hc5962a.config
   DIY_P1_SH: hc5962/diy-part1.sh
