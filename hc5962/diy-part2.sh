@@ -1,10 +1,11 @@
 #!/bin/bash
 #
 sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
-# sed -i "s/hostname='OpenWrt'/hostname='HiWifi_$(cat \/sys\/class\/ieee80211\/${dev}\/macaddress\|awk -F \":\" '{print $4\"\"$5\"\"$6 }'\| tr a-z A-Z)'/g" package/base-files/files/bin/config_generate
+# sed -i "s/hostname='OpenWrt'/hostname='HiWifi'/g" package/base-files/files/bin/config_generate
 sed -i "s/'0.openwrt.pool.ntp.org'/'ntp.ntsc.ac.cn'/g" package/base-files/files/bin/config_generate
 sed -i "s/set system.@system\[-1\].timezone='UTC'/set system.@system\[-1\].timezone='CST-8'/g" package/base-files/files/bin/config_generate
 sed -i "/set system.@system\[-1\].timezone/i\		set system.@system\[-1\].zonename='Asia\/Shanghai'" package/base-files/files/bin/config_generate
+sed -i "s/set network.globals.ula_prefix='auto'/set network.globals.ula_prefix='fd00::\/48'/g" package/base-files/files/bin/config_generate
 #
 #sed -i 's/htmode=HT20/htmode=HT40/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 sed -i 's/set wireless.radio${devidx}.disabled=1/set wireless.radio${devidx}.disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
