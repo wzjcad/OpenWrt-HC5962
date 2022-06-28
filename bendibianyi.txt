@@ -3,37 +3,45 @@ sudo apt update
 sudo apt upgrade
 -------------
 sudo vi /etc/environment
-export http_proxy=http://192.168.1.107:7890
-export https_proxy=http://192.168.1.107:7890
+export http_proxy=(http://192.168.1.107:7890)
+export https_proxy=(http://192.168.1.107:7890)
+-----------------
+sudo apt install openconnect
+openconnect (server:8080)
+-----------------
+dnf groupinstall "Development Tools"
+dnf install wget ncurses-devel zlib-devel vim-enhanced
 sudo apt install $(curl -fsSL git.io/depends-ubuntu-2004)
 https://github.com/P3TERX/openwrt-list/raw/master/depends-ubuntu-2004
 https://raw.githubusercontent.com/P3TERX/openwrt-list/master/depends-ubuntu-2004
 sudo apt install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
 -------------
-git clone https://github.com/openwrt/openwrt.git -b openwrt-21.02 openwrt
+git clone https://github.com/openwrt/openwrt.git -b openwrt-22.03 ./openwrt
+git clone https://github.com/ZhangShuxiang/OpenWrt-HC5962.git ./openwrtbulid
 cd ./openwrt
 git pull
 -------------
-wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/diy-part1.sh
-wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/neo2/diy-part1.sh
-chmod +x diy-part1.sh && sh diy-part1.sh
+chmod +x $HOME/openwrtbulid/hc5962/diy-part1.sh && sh $HOME/openwrtbulid/hc5962/diy-part1.sh
+chmod +x $HOME/openwrtbulid/neo2/diy-part1.sh && sh $HOME/openwrtbulid/neo2/diy-part1.sh
 -------------
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 -------------
-wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/diy-part2.sh
-wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/neo2/diy-part2.sh
-chmod +x diy-part2.sh && sh diy-part2.sh
+chmod +x $HOME/openwrtbulid/hc5962/diy-part2.sh && sh $HOME/openwrtbulid/hc5962/diy-part2.sh
+chmod +x $HOME/openwrtbulid/neo2/diy-part2.sh && sh $HOME/openwrtbulid/neo2/diy-part2.sh
 -------------
-wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/hc5962/hc5962a.config -O .config
-wget https://github.com/ZhangShuxiang/OpenWrt-HC5962/raw/main/neo2/neo2.config -O .config
+cp $HOME/openwrtbulid/hc5962/hc5962a.config $HOME/openwrt/.config
+cp $HOME/openwrtbulid/neo2/neo2.config $HOME/openwrt/.config
 make menuconfig
 make defconfig
 make download
 make
 -------------
+清理掉包括已编译好：固件、软件包
 make clean
+清理掉包括已编译好：交叉编译工具、固件、软件包
 make dirclean
+清理掉所有内容（包含axwrt定义的软件包信息，这个清理将返回OpenWrt原始状态）
 make distclean
 -------------
 neo2fenqu
