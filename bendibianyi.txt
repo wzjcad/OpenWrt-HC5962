@@ -1,10 +1,11 @@
-Ubuntu 22.04
+#Ubuntu 22.04
 sudo apt update
 #sudo apt upgrade
--------------
-#sudo dnf groupinstall "Development Tools"
-#sudo dnf --setopt install_weak_deps=False --skip-broken install bash-completion bzip2 gcc gcc-c++ git make ncurses-devel patch rsync tar unzip wget which diffutils python2 python3 perl-base perl-Data-Dumper perl-File-Compare perl-File-Copy perl-FindBin perl-Thread-Queue
 sudo apt install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev unzip openconnect
+-----------------
+#fedora
+sudo dnf update
+#sudo dnf upgrade
 -----------------
 sudo openconnect (server:8080)
 (ctrl+z/jobs -l/bg %/fg %/kill %PID)
