@@ -2,16 +2,17 @@ Ubuntu 22.04
 sudo apt update
 sudo apt upgrade
 -------------
-sudo vi /etc/environment
-export http_proxy=(http://192.168.1.107:7890)
-export https_proxy=(http://192.168.1.107:7890)
------------------
-sudo apt install openconnect
-openconnect (server:8080)
------------------
 sudo dnf groupinstall "Development Tools"
 sudo dnf --setopt install_weak_deps=False --skip-broken install bash-completion bzip2 gcc gcc-c++ git make ncurses-devel patch rsync tar unzip wget which diffutils python2 python3 perl-base perl-Data-Dumper perl-File-Compare perl-File-Copy perl-FindBin perl-Thread-Queue
 sudo apt install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev
+-----------------
+sudo apt install openconnect
+sudo openconnect (server:8080)
+(ctrl+z/jobs -l/bg %/fg %/kill %PID)
+-----------------
+sudo vi /etc/environment
+export http_proxy=(http://192.168.1.107:7890)
+export https_proxy=(http://192.168.1.107:7890)
 -------------
 git clone https://github.com/openwrt/openwrt.git -b openwrt-22.03 ./openwrt
 git clone https://github.com/ZhangShuxiang/OpenWrt-HC5962.git ./openwrtbulid
@@ -19,16 +20,16 @@ cd ./openwrt
 git pull
 -------------
 chmod +x $HOME/openwrtbulid/hc5962/diy-part1.sh && sh $HOME/openwrtbulid/hc5962/diy-part1.sh
-chmod +x $HOME/openwrtbulid/neo2/diy-part1.sh && sh $HOME/openwrtbulid/neo2/diy-part1.sh
+#chmod +x $HOME/openwrtbulid/neo2/diy-part1.sh && sh $HOME/openwrtbulid/neo2/diy-part1.sh
 -------------
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 -------------
 chmod +x $HOME/openwrtbulid/hc5962/diy-part2.sh && sh $HOME/openwrtbulid/hc5962/diy-part2.sh
-chmod +x $HOME/openwrtbulid/neo2/diy-part2.sh && sh $HOME/openwrtbulid/neo2/diy-part2.sh
+#chmod +x $HOME/openwrtbulid/neo2/diy-part2.sh && sh $HOME/openwrtbulid/neo2/diy-part2.sh
 -------------
 cp $HOME/openwrtbulid/hc5962/hc5962a.config $HOME/openwrt/.config
-cp $HOME/openwrtbulid/neo2/neo2.config $HOME/openwrt/.config
+#cp $HOME/openwrtbulid/neo2/neo2.config $HOME/openwrt/.config
 make menuconfig
 make defconfig
 make download
