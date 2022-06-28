@@ -1,4 +1,4 @@
-Ubuntu server 20.04 lts
+Ubuntu 22.04
 sudo apt update
 sudo apt upgrade
 -------------
@@ -9,12 +9,9 @@ export https_proxy=(http://192.168.1.107:7890)
 sudo apt install openconnect
 openconnect (server:8080)
 -----------------
-dnf groupinstall "Development Tools"
-dnf install wget ncurses-devel zlib-devel vim-enhanced
-sudo apt install $(curl -fsSL git.io/depends-ubuntu-2004)
-https://github.com/P3TERX/openwrt-list/raw/master/depends-ubuntu-2004
-https://raw.githubusercontent.com/P3TERX/openwrt-list/master/depends-ubuntu-2004
-sudo apt install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+sudo dnf groupinstall "Development Tools"
+sudo dnf --setopt install_weak_deps=False --skip-broken install bash-completion bzip2 gcc gcc-c++ git make ncurses-devel patch rsync tar unzip wget which diffutils python2 python3 perl-base perl-Data-Dumper perl-File-Compare perl-File-Copy perl-FindBin perl-Thread-Queue
+sudo apt install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev
 -------------
 git clone https://github.com/openwrt/openwrt.git -b openwrt-22.03 ./openwrt
 git clone https://github.com/ZhangShuxiang/OpenWrt-HC5962.git ./openwrtbulid
