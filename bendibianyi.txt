@@ -1,18 +1,17 @@
 Ubuntu 22.04
 sudo apt update
-sudo apt upgrade
+#sudo apt upgrade
 -------------
-sudo dnf groupinstall "Development Tools"
-sudo dnf --setopt install_weak_deps=False --skip-broken install bash-completion bzip2 gcc gcc-c++ git make ncurses-devel patch rsync tar unzip wget which diffutils python2 python3 perl-base perl-Data-Dumper perl-File-Compare perl-File-Copy perl-FindBin perl-Thread-Queue
-sudo apt install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev
+#sudo dnf groupinstall "Development Tools"
+#sudo dnf --setopt install_weak_deps=False --skip-broken install bash-completion bzip2 gcc gcc-c++ git make ncurses-devel patch rsync tar unzip wget which diffutils python2 python3 perl-base perl-Data-Dumper perl-File-Compare perl-File-Copy perl-FindBin perl-Thread-Queue
+sudo apt install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev unzip openconnect
 -----------------
-sudo apt install openconnect
 sudo openconnect (server:8080)
 (ctrl+z/jobs -l/bg %/fg %/kill %PID)
 -----------------
-sudo vi /etc/environment
-export http_proxy=(http://192.168.1.107:7890)
-export https_proxy=(http://192.168.1.107:7890)
+#sudo vi /etc/environment
+#export http_proxy=(http://192.168.1.107:7890)
+#export https_proxy=(http://192.168.1.107:7890)
 -------------
 git clone https://github.com/openwrt/openwrt.git -b openwrt-22.03 ./openwrt
 git clone https://github.com/ZhangShuxiang/OpenWrt-HC5962.git ./openwrtbulid
