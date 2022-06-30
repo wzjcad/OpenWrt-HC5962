@@ -14,5 +14,5 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-echo src-git-full openwrt-vlmcsd https://github.com/cokebar/openwrt-vlmcsd.git >>feeds.conf.default
-echo src-git-full luci-app-vlmcsd https://github.com/cokebar/luci-app-vlmcsd.git >>feeds.conf.default
+echo src-git-full openwrt-vlmcsd https://github.com/cokebar/openwrt-vlmcsd.git^213bce995e5ce6af78fb923db1838c992b21950c >>feeds.conf.default
+echo src-git-full luci-app-vlmcsd https://github.com/cokebar/luci-app-vlmcsd.git^7f9cd13ccc7d9b5c6483501f43973cd4a1a7c309 >>feeds.conf.default
