@@ -39,7 +39,7 @@ jobs:
 #-----------------------------------------------#
     - name: Load custom configuration
       run: |
-        [ -e $CONF_FILE ] && cp $CONFIG_FILE openwrt/.config
+        [ -e $CONF_FILE ] && cp $CONF_FILE openwrt/.config
         cd openwrt && chmod +x $GITHUB_WORKSPACE/$DIY_P2_SH && $GITHUB_WORKSPACE/$DIY_P2_SH
 #-----------------------------------------------#
     - name: Download package
