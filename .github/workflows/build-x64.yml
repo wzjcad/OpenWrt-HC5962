@@ -33,7 +33,7 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo -E apt -qqy update
-        sudo -E apt -qqy install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev unzip
+        sudo -E apt -qqy install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev libpam liblzma libnetsnmp unzip
 #-----------------------------------------------#
     - name: Clone source code
       run: git clone $REPO_URL -b $REPO_TAG $GITHUB_WORKSPACE/openwrt
