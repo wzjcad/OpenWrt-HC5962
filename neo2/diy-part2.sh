@@ -7,5 +7,5 @@ sed -i "s/set system.@system\[-1\].timezone='UTC'/set system.@system\[-1\].timez
 sed -i "/set system.@system\[-1\].timezone/i\		set system.@system\[-1\].zonename='Asia\/Shanghai'" package/base-files/files/bin/config_generate
 #
 sed -i 's/REJECT/ACCEPT/g' package/network/config/firewall/files/firewall.config
-# sed -i 's/static/dhcp/g' package/base-files/files/lib/functions/uci-defaults.sh
-sed -i 's/ucidef_set_interface_lan \"eth0\"/ucidef_set_interface_wan \"eth0\"/g' target/linux/sunxi/base-files/etc/board.d/02_network
+sed -i 's/static/dhcp/g' package/base-files/files/lib/functions/uci-defaults.sh
+# sed -i 's/ucidef_set_interface_lan \"eth0\"/ucidef_set_interface_wan \"eth0\"/g' target/linux/sunxi/base-files/etc/board.d/02_network
