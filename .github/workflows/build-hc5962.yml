@@ -5,7 +5,7 @@ on:
 #------------------#
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_TAG: v22.03.0-rc4
+  REPO_TAG: v22.03.0
   CONF_FILE: hc5962/hc5962a.config
   DIY_P1_SH: hc5962/diy-part1.sh
   DIY_P2_SH: hc5962/diy-part2.sh
