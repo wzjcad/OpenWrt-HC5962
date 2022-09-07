@@ -10,5 +10,9 @@ sed -i "s/set network.globals.ula_prefix='auto'/set network.globals.ula_prefix='
 sed -i 's/REJECT/ACCEPT/g' package/network/config/firewall/files/firewall.config
 sed -i 's/	option masq		1/	option masq		0/g' package/network/config/firewall/files/firewall.config
 sed -i 's/	option mtu_fix		1/	option mtu_fix		0/g' package/network/config/firewall/files/firewall.config
+cp ./package/network/config/firewall/files/firewall.config ./package/network/config/firewall4/files/firewall.config
+sed -i "/define Package\/firewall4\/install/i\		\$(INSTALL_CONF) \.\/files\/firewall\.config \$(1)\/etc\/config\/firewall" 
+sed -i "/define Package\/firewall4\/install/i\		\$(INSTALL_DIR) \$(1)\/etc\/config\/"
+
 # sed -i 's/static/dhcp/g' package/base-files/files/lib/functions/uci-defaults.sh
 sed -i 's/ucidef_set_interface_lan \"eth0\"/ucidef_set_interface_wan \"eth0\"/g' target/linux/sunxi/base-files/etc/board.d/02_network
