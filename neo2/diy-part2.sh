@@ -10,7 +10,8 @@ sed -i "s/set network.globals.ula_prefix='auto'/set network.globals.ula_prefix='
 sed -i 's/REJECT/ACCEPT/g' package/network/config/firewall/files/firewall.config
 sed -i 's/	option masq		1/	option masq		0/g' package/network/config/firewall/files/firewall.config
 sed -i 's/	option mtu_fix		1/	option mtu_fix		0/g' package/network/config/firewall/files/firewall.config
-cp --path ./package/network/config/firewall/files/firewall.config ./package/network/config/firewall4/files/firewall.config
+mkdir -p ./package/network/config/firewall4/files/
+cp ./package/network/config/firewall/files/firewall.config ./package/network/config/firewall4/files/firewall.config
 sed -i "/define Package\/firewall4\/install/i\		\$(INSTALL_CONF) \.\/files\/firewall\.config \$(1)\/etc\/config\/firewall" package/network/config/firewall4/Makefile
 sed -i "/define Package\/firewall4\/install/i\		\$(INSTALL_DIR) \$(1)\/etc\/config\/" package/network/config/firewall4/Makefile
 
