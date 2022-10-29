@@ -15,7 +15,7 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt.git
-  REPO_TAG: v22.03.0
+  REPO_TAG: v22.03.2
   CONF_FILE: neo2/neo2.config
   DIY_P1_SH: neo2/diy-part1.sh
   DIY_P2_SH: neo2/diy-part2.sh
