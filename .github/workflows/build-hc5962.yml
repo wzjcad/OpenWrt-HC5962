@@ -26,7 +26,9 @@ jobs:
         sudo -E apt -qqy install build-essential gawk gcc-multilib flex git gettext libncurses5-dev libssl-dev python3-distutils zlib1g-dev unzip
 #-----------------------------------------------#
     - name: Clone source code
-      run: git clone $REPO_URL -b $REPO_TAG $GITHUB_WORKSPACE/openwrt
+      run: |
+       git clone https://github.com/padavanonly/immortalwrt.git $GITHUB_WORKSPACE/immortalwrt
+       git clone $REPO_URL -b $REPO_TAG $GITHUB_WORKSPACE/openwrt
 #-----------------------------------------------#
     - name: Load custom feeds
       run: cd openwrt && chmod +x $GITHUB_WORKSPACE/$DIY_P1_SH && $GITHUB_WORKSPACE/$DIY_P1_SH
