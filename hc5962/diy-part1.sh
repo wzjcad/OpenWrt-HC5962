@@ -7,3 +7,4 @@
 # Add mtk driver
 rm -rf $GITHUB_WORKSPACE/openwrt/target/linux/ramips/*
 cp -r $GITHUB_WORKSPACE/immortalwrt/target/linux/ramips/. $GITHUB_WORKSPACE/openwrt/target/linux/ramips
+sed -i '/KERNEL_TESTING_PATCHVER.*/d' $GITHUB_WORKSPACE/openwrt/target/linux/ramips/Makefile
